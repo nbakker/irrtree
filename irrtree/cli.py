@@ -273,8 +273,8 @@ def main():
         for item in db:
             if "-" in item:
                 db[item]['members'] = db[item]['members'] - to_delete
-
-    pbar.finish()
+    if not debug:
+        pbar.finish()
     process(server.irr_host, server.afi, db, query_object, server.search)
 
 
